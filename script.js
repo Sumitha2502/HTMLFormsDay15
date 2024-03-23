@@ -7,10 +7,12 @@ function label_checkbox(tagname,attrname,attrvalue,attrname2,attrvalue2,content)
    return variablename
 }
 function input_checkbox(tagname,attrname1,attrvalue1,atttrname3,attrvalue3,attrname4,attrvalue4,
-    attrname5,attrvalue5,attrname6,attrvalue6){
+    attrname5,attrvalue5){
 var variablename=document.createElement(tagname)
 variablename.setAttribute(attrname1,attrvalue1)
 variablename.setAttribute(atttrname3,attrvalue3)
+variablename.setAttribute(attrname4,attrvalue4)
+variablename.setAttribute(attrname5,attrvalue5)
 return variablename
 }
 
@@ -120,7 +122,6 @@ document.body.append(div7,div8,div10,div11,div12,div13,div14,div16,div15)
 var div0=document.createElement("div")
 var para_checkbox=document.createElement("p")
 para_checkbox.innerHTML="Choice of Food: (must choose at least 2 out of 5 options)"
-para_checkbox.setAttribute("name","FavFood")
 div0.append(para_checkbox)
 
 var div17=document.createElement("div")
@@ -219,32 +220,21 @@ function input_data(){
    
     var getData7=document.querySelector('input[name="gender"]:checked').value
 
-    // var selectedFood = Array.from(document.getElementsByName("FavFood"))
-    //    var getData8=selectedFood.filter(function(checkbox) {
-    //         return checkbox.checked;
-    //     })
-    //     .map(function(checkbox) {
-    //         return checkbox.value;
-    //     });
-
     var food=document.getElementsByName("FavFood")
     var getData8=[]
     var foodCount=0
     var result=" "
-    // console.log(food)
     for(var i=0;i<food.length;i++){
         if(food[i].checked){
             getData8.push(food[i].value)
             foodCount++
         }}
     
-    if(getData8.length>=2){
+    if(getData8.length>2){
          result=getData8.join(",")
     }else{
         result="No food selected"
     }
-
-
 
      var getData9=document.getElementById("mySelect").value 
      var getData10=document.getElementById("mySelect1").value
